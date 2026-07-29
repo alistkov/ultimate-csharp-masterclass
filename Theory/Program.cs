@@ -1,8 +1,4 @@
-﻿string word;
-
-do
+﻿for (var i = 0; i < 5; i += 1)
 {
-    Console.WriteLine("Enter a word longer than 10 letters");
-    word = Console.ReadLine();
-    
-} while (word!.Length <= 10);
+    Console.WriteLine("Hello!");
+}
