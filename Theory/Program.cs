@@ -1,30 +1,24 @@
-﻿string BuildHelloString()
+﻿char[,] letters = new char[2, 3];
+letters[0, 0] = 'A';
+letters[0, 1] = 'B';
+letters[0, 2] = 'C';
+letters[1, 0] = 'D';
+letters[1, 1] = 'E';
+letters[1, 2] = 'F';
+
+var height = letters.GetLength(0);
+var width = letters.GetLength(1);
+
+for (int i = 0; i < height; i++)
 {
-    char[] letters = new[] { 'h', 'e', 'l', 'l', 'o' };
-    var result = "";
-    for(int i = 0; i < letters.Length; ++i)
+    for (int j = 0; j < width; j += 1)
     {
-        //your code goes here
-        result = $"{result}{letters[i]}";
+        Console.WriteLine(letters[i, j]);
     }
-    return result;
 }
 
-Console.WriteLine(BuildHelloString());
-
-bool IsWordPresentInCollection(string[] words, string wordToBeChecked)
+var letters2 = new char[,]
 {
-    //your code goes here
-    for (int i = 0; i < words.Length; i++)
-    {
-        if (words[i] == wordToBeChecked)
-        {
-            return true;
-        }
-    }
-
-    return false;
-}
-
-Console.WriteLine(IsWordPresentInCollection(["one", "two", "three"], "hello"));
-Console.WriteLine(IsWordPresentInCollection(["one", "two", "three"], "two"));
+    {'A', 'B', 'C'},
+    {'D', 'E', 'F'},
+};
