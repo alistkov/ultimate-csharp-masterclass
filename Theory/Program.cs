@@ -1,24 +1,39 @@
-﻿char[,] letters = new char[2, 3];
-letters[0, 0] = 'A';
-letters[0, 1] = 'B';
-letters[0, 2] = 'C';
-letters[1, 0] = 'D';
-letters[1, 1] = 'E';
-letters[1, 2] = 'F';
-
-var height = letters.GetLength(0);
-var width = letters.GetLength(1);
-
-for (int i = 0; i < height; i++)
+﻿int FindMax(int[,] numbers)
 {
-    for (int j = 0; j < width; j += 1)
+    //your code goes here
+    var a = numbers.GetLength(0);
+    var b = numbers.GetLength(1);
+    
+    if (a == 0 || b == 0)
     {
-        Console.WriteLine(letters[i, j]);
+        return -1;
     }
+    
+    var maxValue = numbers[0, 0];
+    for (int i = 0; i < a; i++)
+    {
+        for (int j = 0; j < b; j++)
+        {
+            if (numbers[i, j] > maxValue)
+            {
+                maxValue = numbers[i, j];
+            }
+        }
+    }
+
+    return maxValue;
 }
 
-var letters2 = new char[,]
+var array1 = new int[,]
 {
-    {'A', 'B', 'C'},
-    {'D', 'E', 'F'},
+    {3, 5},
+    {-1, 12},
+    {4, 0}
 };
+
+var array2 = new int[0, 3];
+var array3 = new int[1, 0];
+
+Console.WriteLine(FindMax(array1));
+Console.WriteLine(FindMax(array2));
+Console.WriteLine(FindMax(array3));
