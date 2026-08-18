@@ -1,44 +1,50 @@
-﻿var words = new List<string>
+﻿List<string> GetOnlyUpperCaseWords(List<string> words)
 {
-    "one",
-    "two",
-    "three"
-};
+    //your code goes here
 
-Console.WriteLine($"Count of elements is {words.Count}");
+    var result = new List<string>();
 
-words.Add("hello");
+    foreach (var word in words)
+    {
+        if (result.Contains(word))
+        {
+            continue;
+        }
+        var isAllLettersUppercase = true;
 
-Console.WriteLine($"Count of elements is {words.Count}");
+        foreach (var letter in word)
+        {
+            if (!char.IsUpper(letter))
+            {
+                isAllLettersUppercase = false;
+                break;
+            }
+        }
 
-for (int i = 0; i < words.Count; i++)
-{
-    Console.WriteLine(words[i]);
+        if (isAllLettersUppercase)
+        {
+            result.Add(word);
+        }
+    }
+    return result;
 }
 
-Console.WriteLine("-----------------");
+var one = GetOnlyUpperCaseWords(new List<string>{"one", "TWO", "THREE", "four"});
+var two = GetOnlyUpperCaseWords(new List<string>{"one", "TWO", "THREE", "four", "TWO"});
+var three = GetOnlyUpperCaseWords(new List<string>{"one", "TWO123", "THREE!&^", "four"});
 
-words.Remove("two");
-
-words.RemoveAt(2);
-
-foreach (var word in words)
+foreach (var word in one)
 {
     Console.WriteLine(word);
 }
-
-Console.WriteLine("-----------------");
-var moreWords = new List<string> { "eins", "zwei", "drei" };
-words.AddRange(moreWords);
-
-foreach (var word in words)
+Console.WriteLine("-------------");
+foreach (var word in two)
 {
     Console.WriteLine(word);
 }
-
-Console.WriteLine("-----------------");
-Console.WriteLine($"Index of eins is {words.IndexOf("eins")}");
-Console.WriteLine($"Index of seven is {words.IndexOf("seven")}");
-Console.WriteLine("-----------------");
-words.Clear();
-Console.WriteLine($"Count of elements is {words.Count}");
+Console.WriteLine("-------------");
+foreach (var word in three)
+{
+    Console.WriteLine(word);
+}
+Console.WriteLine("-------------");
