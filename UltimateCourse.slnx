@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="Calculator/Calculator.csproj" />
   <Project Path="Theory/Theory.csproj" />
+  <Project Path="TodoApp/TodoApp.csproj" />
   <Project Path="UltimateCourse/UltimateCourse.csproj" />
 </Solution>
