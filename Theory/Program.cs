@@ -1,32 +1,24 @@
-﻿var numbers = new[] { 10, -8, 2, 12, -17 };
+﻿// Console.WriteLine("Enter a number");
+// var userInput = Console.ReadLine();
+// // int asNumber = int.Parse(userInput);
+//
+// bool isParsingSuccessful = int.TryParse(userInput, out int number);
+//
+// if (isParsingSuccessful)
+// {
+//     Console.WriteLine($"Parsing worked, the number is {number}");
+// }
+// else
+// {
+//     Console.WriteLine("Parsing was not successful");
+// }
 
-var answer = GetOnyPositive(numbers, out int nonPositiveCount);
+bool isParsingSuccessful;
 
-foreach (var i in answer)
+do
 {
-    Console.WriteLine(i);
-}
-
-Console.WriteLine($"Count of non positive numbers: {nonPositiveCount}");
-
-Console.ReadKey();
-
-List<int> GetOnyPositive(int[] numbers, out int countOfNonPositive)
-{
-    var result = new List<int>();
-    countOfNonPositive = 0;
-
-    foreach (var number in numbers)
-    {
-        if (number > 0)
-        {
-            result.Add(number);
-        }
-        else
-        {
-            countOfNonPositive += 1;
-        }
-    }
-
-    return result;
-}
+    Console.WriteLine("Enter a number");
+    var userInput = Console.ReadLine();
+    isParsingSuccessful = int.TryParse(userInput, out int number);
+    Console.WriteLine(isParsingSuccessful ? $"Parsing worked, the number is {number}" : "Parsing was not successful");
+} while (!isParsingSuccessful);
