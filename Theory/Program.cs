@@ -1,50 +1,32 @@
-﻿List<string> GetOnlyUpperCaseWords(List<string> words)
+﻿var numbers = new[] { 10, -8, 2, 12, -17 };
+
+var answer = GetOnyPositive(numbers, out int nonPositiveCount);
+
+foreach (var i in answer)
 {
-    //your code goes here
+    Console.WriteLine(i);
+}
 
-    var result = new List<string>();
+Console.WriteLine($"Count of non positive numbers: {nonPositiveCount}");
 
-    foreach (var word in words)
+Console.ReadKey();
+
+List<int> GetOnyPositive(int[] numbers, out int countOfNonPositive)
+{
+    var result = new List<int>();
+    countOfNonPositive = 0;
+
+    foreach (var number in numbers)
     {
-        if (result.Contains(word))
+        if (number > 0)
         {
-            continue;
+            result.Add(number);
         }
-        var isAllLettersUppercase = true;
-
-        foreach (var letter in word)
+        else
         {
-            if (!char.IsUpper(letter))
-            {
-                isAllLettersUppercase = false;
-                break;
-            }
-        }
-
-        if (isAllLettersUppercase)
-        {
-            result.Add(word);
+            countOfNonPositive += 1;
         }
     }
+
     return result;
 }
-
-var one = GetOnlyUpperCaseWords(new List<string>{"one", "TWO", "THREE", "four"});
-var two = GetOnlyUpperCaseWords(new List<string>{"one", "TWO", "THREE", "four", "TWO"});
-var three = GetOnlyUpperCaseWords(new List<string>{"one", "TWO123", "THREE!&^", "four"});
-
-foreach (var word in one)
-{
-    Console.WriteLine(word);
-}
-Console.WriteLine("-------------");
-foreach (var word in two)
-{
-    Console.WriteLine(word);
-}
-Console.WriteLine("-------------");
-foreach (var word in three)
-{
-    Console.WriteLine(word);
-}
-Console.WriteLine("-------------");
