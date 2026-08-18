@@ -1,15 +1,44 @@
-﻿bool IsAnyWordLongerThan(int length, string[] words)
+﻿var words = new List<string>
 {
-    //your code goes here
-    foreach (var word in words)
-    {
-        if (word.Length > length)
-            return true;
-    }
+    "one",
+    "two",
+    "three"
+};
 
-    return false;
+Console.WriteLine($"Count of elements is {words.Count}");
+
+words.Add("hello");
+
+Console.WriteLine($"Count of elements is {words.Count}");
+
+for (int i = 0; i < words.Count; i++)
+{
+    Console.WriteLine(words[i]);
 }
 
-Console.WriteLine(IsAnyWordLongerThan(4, ["aaa", "bbbb", "ccccc"]));
-Console.WriteLine(IsAnyWordLongerThan(5, ["aaa", "bbbb", "ccccc"]));
-Console.WriteLine(IsAnyWordLongerThan(4, []));
+Console.WriteLine("-----------------");
+
+words.Remove("two");
+
+words.RemoveAt(2);
+
+foreach (var word in words)
+{
+    Console.WriteLine(word);
+}
+
+Console.WriteLine("-----------------");
+var moreWords = new List<string> { "eins", "zwei", "drei" };
+words.AddRange(moreWords);
+
+foreach (var word in words)
+{
+    Console.WriteLine(word);
+}
+
+Console.WriteLine("-----------------");
+Console.WriteLine($"Index of eins is {words.IndexOf("eins")}");
+Console.WriteLine($"Index of seven is {words.IndexOf("seven")}");
+Console.WriteLine("-----------------");
+words.Clear();
+Console.WriteLine($"Count of elements is {words.Count}");
