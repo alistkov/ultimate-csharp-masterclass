@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Theory/Theory.csproj" />
   <Project Path="UltimateCourse/UltimateCourse.csproj" />
 </Solution>
