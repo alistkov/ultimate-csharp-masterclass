@@ -11,15 +11,16 @@ public class MedicalAppointment
         _date = date;
     }
 
-    public MedicalAppointment(string patientName) : this(patientName, 7)
-    {
-    }
-
-    public MedicalAppointment(string patientName, int daysFromNow)
+    public MedicalAppointment(string patientName = "Unknown", int daysFromNow = 7)
     {
         _patientName = patientName;
         _date = DateTime.Now.AddDays(daysFromNow);
     }
+
+    // public MedicalAppointment(string patientName)
+    // {
+    //     _patientName = patientName;
+    // }
 
     public void Reschedule(DateTime date)
     {
