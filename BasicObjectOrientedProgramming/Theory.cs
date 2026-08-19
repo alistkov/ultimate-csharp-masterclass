@@ -26,4 +26,14 @@ class Rectangle
         Width = width;
         Height = height;
     }
+
+    public int CalculateCircumference()
+    {
+        return 2 * Width + 2 * Height;
+    }
+
+    public int CalculateArea()
+    {
+        return Width * Height;
+    }
 }
