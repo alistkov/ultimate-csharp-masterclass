@@ -1,9 +1,8 @@
 ﻿using BasicObjectOrientedProgramming;
 
-var rectangle = new Rectangle(4, 5);
-Console.WriteLine(rectangle.Height);
+var order = new Order("Tea", new DateTime(2026, 12, 12));
+Console.WriteLine(order.Item);
+Console.WriteLine(order.Date);
 
-rectangle.SetHeight(13);
-Console.WriteLine(rectangle.Height);
-
-Console.WriteLine(rectangle.Width);
+order.Date = new DateTime(2026, 11, 11);
+Console.WriteLine(order.Date);
