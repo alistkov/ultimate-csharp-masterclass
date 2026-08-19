@@ -20,12 +20,22 @@ class Rectangle
 {
     private const int NumbersOfSides = 4;
     public readonly int Width;
-    public readonly int Height;
+    private int _height;
 
     public Rectangle(int width, int height)
     {
         Width = GetLengthOrDefaultValue(width, nameof(Width));
-        Height = GetLengthOrDefaultValue(height, nameof(Height));
+        _height = GetLengthOrDefaultValue(height, nameof(_height));
+    }
+
+    public int GetHeight() => _height;
+
+    public void SetHeight(int height)
+    {
+        if (height > 0)
+        {
+            _height = height;
+        }
     }
 
     private int GetLengthOrDefaultValue(int length, string name)
@@ -37,14 +47,14 @@ class Rectangle
 
     }
 
-    public int CalculateCircumference() => 2 * Width + 2 * Height;
+    public int CalculateCircumference() => 2 * Width + 2 * _height;
 
-    public int CalculateArea() => Width * Height;
+    public int CalculateArea() => Width * _height;
 }
 
 class ShapeMeasurementsCalculator
 {
-    public int CalculateRectangleCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.Height;
+    public int CalculateRectangleCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.GetHeight();
 
-    public int CalculateRectangleArea(Rectangle rectangle) => rectangle.Width * rectangle.Height;
+    public int CalculateRectangleArea(Rectangle rectangle) => rectangle.Width * rectangle.GetHeight();
 }
