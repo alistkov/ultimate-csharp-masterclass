@@ -19,13 +19,29 @@ public static class Theory
 class Rectangle
 {
     private const int NumbersOfSides = 4;
-    public readonly int Width;
+    private int _width;
+
+    public int Width
+    {
+        get { return _width; }
+
+        private set
+        {
+            if (value > 10)
+            {
+                _width = value;
+            }
+        }
+    }
+
     private int _height;
+    public int Height { get; }
 
     public Rectangle(int width, int height)
     {
-        Width = GetLengthOrDefaultValue(width, nameof(Width));
-        _height = GetLengthOrDefaultValue(height, nameof(_height));
+        Height = height;
+        _width = GetLengthOrDefaultValue(width, nameof(Width));
+        _height = GetLengthOrDefaultValue(height, nameof(Height));
     }
 
     public int GetHeight() => _height;
@@ -44,7 +60,6 @@ class Rectangle
         if (length > 0) return length;
         Console.WriteLine($"{name} must be positive number");
         return defaultValue;
-
     }
 
     public int CalculateCircumference() => 2 * Width + 2 * _height;
