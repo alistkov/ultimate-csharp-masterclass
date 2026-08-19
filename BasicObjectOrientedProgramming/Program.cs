@@ -14,3 +14,6 @@ Console.WriteLine($"Rectangle height is {rectangle2.Height}");
 Console.WriteLine($"Rectangle circumference {calculator.CalculateRectangleCircumference(rectangle2)}");
 Console.WriteLine($"Rectangle area {calculator.CalculateRectangleArea(rectangle2)}");
 
+var triangle = new Triangle(10, 5);
+Console.WriteLine(triangle.CalculateArea());
+Console.WriteLine(triangle.AsString());
