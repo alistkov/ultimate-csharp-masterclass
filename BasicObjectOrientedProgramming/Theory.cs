@@ -15,3 +15,15 @@ public static class Theory
         Console.WriteLine($"Day of the week is {nextYearInternationalPizzaDay.DayOfWeek}");
     }
 }
+
+class Rectangle
+{
+    public int Width;
+    public int Height;
+
+    public Rectangle(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
+}
