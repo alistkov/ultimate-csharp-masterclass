@@ -27,26 +27,14 @@ class Rectangle
         Height = height;
     }
 
-    public int CalculateCircumference()
-    {
-        return 2 * Width + 2 * Height;
-    }
+    public int CalculateCircumference() => 2 * Width + 2 * Height;
 
-    public int CalculateArea()
-    {
-        return Width * Height;
-    }
+    public int CalculateArea() => Width * Height;
 }
 
 class ShapeMeasurementsCalculator
 {
-    public int CalculateRectangleCircumference(Rectangle rectangle)
-    {
-        return 2 * rectangle.Width + 2 * rectangle.Height;
-    }
+    public int CalculateRectangleCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.Height;
 
-    public int CalculateRectangleArea(Rectangle rectangle)
-    {
-        return rectangle.Width * rectangle.Height;
-    }
+    public int CalculateRectangleArea(Rectangle rectangle) => rectangle.Width * rectangle.Height;
 }
