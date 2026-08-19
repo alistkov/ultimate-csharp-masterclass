@@ -18,8 +18,9 @@ public static class Theory
 
 class Rectangle
 {
-    public int Width;
-    public int Height;
+    private const int NumbersOfSides = 4;
+    public readonly int Width;
+    public readonly int Height;
 
     public Rectangle(int width, int height)
     {
@@ -29,7 +30,7 @@ class Rectangle
 
     private int GetLengthOrDefaultValue(int length, string name)
     {
-        var defaultValue = 1;
+        const int defaultValue = 1;
         if (length > 0) return length;
         Console.WriteLine($"{name} must be positive number");
         return defaultValue;
