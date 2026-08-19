@@ -1,4 +1,4 @@
 <Solution>
-  <Project Path="Theory/Theory.csproj" />
+  <Project Path="BasicObjectOrientedProgramming/BasicObjectOrientedProgramming.csproj" />
   <Project Path="UltimateCourse/UltimateCourse.csproj" />
 </Solution>
