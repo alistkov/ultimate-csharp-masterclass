@@ -10,7 +10,17 @@ public class MedicalAppointment
         _patientName = patientName;
         _date = date;
     }
-    
+
+    public MedicalAppointment(string patientName) : this(patientName, 7)
+    {
+    }
+
+    public MedicalAppointment(string patientName, int daysFromNow)
+    {
+        _patientName = patientName;
+        _date = DateTime.Now.AddDays(daysFromNow);
+    }
+
     public void Reschedule(DateTime date)
     {
         _date = date;
