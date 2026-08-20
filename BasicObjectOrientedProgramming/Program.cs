@@ -2,11 +2,13 @@
 
 var names = new Names();
 var path = names.BuildFilePath();
+var stringsTexturalRepository = new StringsTexturalRepository();
 
 if (File.Exists(path))
 {
     Console.WriteLine("Names file already exists. Load names");
-    names.ReadFromTextFile();
+    var stringFromFile = stringsTexturalRepository.Read(path);
+    names.AddNames(stringFromFile);
 }
 else
 {
@@ -18,7 +20,7 @@ else
     names.AddName("123 definitely not a valid name");
     
     Console.WriteLine("Saving names to a file.");
-    names.WriteToTextFile();
+    stringsTexturalRepository.Write(path, names.All);
 }
 
 Console.WriteLine(names.Format());

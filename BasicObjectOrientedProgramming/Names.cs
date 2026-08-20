@@ -4,16 +4,22 @@ namespace BasicObjectOrientedProgramming;
 
 public class Names
 {
-    private List<string> _names = new List<string>();
+    public List<string> All { get; } = new List<string>();
     private readonly NamesValidator _namesValidator = new NamesValidator();
+    
+    public void AddNames(List<string> stringFromFile)
+    {
+        foreach (var name in stringFromFile)
+        {
+            AddName(name);
+        }
+    }
 
     public void AddName(string name)
     {
         if (_namesValidator.IsValid(name))
-            _names.Add(name);
+            All.Add(name);
     }
-
-    
 
     public string BuildFilePath()
     {
@@ -22,7 +28,7 @@ public class Names
 
     public string Format()
     {
-        return string.Join(Environment.NewLine, _names);
+        return string.Join(Environment.NewLine, All);
     }
 }
 
