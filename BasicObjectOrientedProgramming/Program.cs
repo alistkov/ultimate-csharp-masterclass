@@ -1,7 +1,10 @@
 ﻿using BasicObjectOrientedProgramming;
 
-Console.WriteLine(Calculator.Add(1, 2));
-Console.WriteLine(Calculator.Subtract(10, 3));
-Console.WriteLine(Calculator.Multiply(3, 5));
-
-Console.WriteLine(Calculator.PI);
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(1));
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(2));
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(3));
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(4));
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(5));
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(6));
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(7));
+Console.WriteLine(NumberToDayOfWeekTranslator.Translate(8));
