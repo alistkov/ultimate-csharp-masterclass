@@ -20,6 +20,8 @@ class Rectangle
 {
     private const int NumbersOfSides = 4;
     private int _width;
+    public static int CountOfInstances { get; private set; }
+    private static DateTime _firstUsed;
 
     public int Width
     {
@@ -39,9 +41,14 @@ class Rectangle
 
     public Rectangle(int width, int height)
     {
-        Height = height;
-        _width = GetLengthOrDefaultValue(width, nameof(Width));
-        _height = GetLengthOrDefaultValue(height, nameof(Height));
+        Width = GetLengthOrDefaultValue(width, nameof(Width));
+        Height = GetLengthOrDefaultValue(height, nameof(Height));
+        ++CountOfInstances;
+    }
+
+    static Rectangle()
+    {
+        _firstUsed = DateTime.Now;
     }
 
     public int GetHeight() => _height;
@@ -62,9 +69,9 @@ class Rectangle
         return defaultValue;
     }
 
-    public int CalculateCircumference() => 2 * Width + 2 * _height;
+    public int CalculateCircumference() => 2 * Width + 2 * Height;
 
-    public int CalculateArea() => Width * _height;
+    public int CalculateArea() => Width * Height;
 
     public string Description => $"Rectangle width {Width} and height {Height}";
 }
