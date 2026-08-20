@@ -1,4 +1,4 @@
-namespace DiceRollGame;
+namespace DiceRollGame.UserCommunication;
 
 public static class ConsoleReader
 {

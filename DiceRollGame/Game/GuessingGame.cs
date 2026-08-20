@@ -1,4 +1,6 @@
-namespace DiceRollGame;
+using DiceRollGame.UserCommunication;
+
+namespace DiceRollGame.Game;
 
 public class GuessingGame(Dice dice)
 {
@@ -23,5 +25,14 @@ public class GuessingGame(Dice dice)
         }
 
         return GameResult.Loss;
+    }
+
+    public static void PrintResult(GameResult gameResult)
+    {
+        var message = gameResult == GameResult.Victory
+            ? "You won!"
+            : "You lose :(";
+        
+        Console.WriteLine(message);
     }
 }
