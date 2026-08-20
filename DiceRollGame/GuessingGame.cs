@@ -4,7 +4,7 @@ public class GuessingGame(Dice dice)
 {
     private const int InitialTries = 3;
 
-    public bool Play()
+    public GameResult Play()
     {
         var diceRollResult = dice.Roll();
         Console.WriteLine($"Dice rolled. Guess what number it shows in {InitialTries} tries");
@@ -15,13 +15,13 @@ public class GuessingGame(Dice dice)
 
             if (guess == diceRollResult)
             {
-                return true;
+                return GameResult.Victory;
             }
 
             Console.WriteLine("Wrong number");
             --triesLeft;
         }
 
-        return false;
+        return GameResult.Loss;
     }
 }
