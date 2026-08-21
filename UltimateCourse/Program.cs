@@ -1,6 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
+var chedar = new Cheddar();
+Console.WriteLine(chedar.PublicMethods());
+
 
 public class Pizza
 {
@@ -16,7 +19,16 @@ public class Pizza
 }
 
 public class Ingredient
-{}
+{
+    public string PublicMethods() =>
+        "This method is PUBLIC in the Ingredient class";
+    
+    private string PrivateMethods() =>
+        "This method is PRIVATE in the Ingredient class";
+    
+    protected string ProtectedMethods() =>
+        "This method is PROTECTED in the Ingredient class";
+}   
 
 public class Cheddar : Ingredient
 {
