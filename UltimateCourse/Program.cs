@@ -63,7 +63,7 @@ public class Cheddar : Ingredient
         AgedForMonths = agedForMonth;
     }
 
-    public override string Name => "Cheddar cheese";
+    public override string Name => $"{base.Name}, more specifially, a Cheddar cheese for {AgedForMonths} months";
 
     public int AgedForMonths { get; }
 }
