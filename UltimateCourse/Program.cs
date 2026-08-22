@@ -1,11 +1,18 @@
-﻿int seasonNumber = 0;
+﻿var seasonNumber = 0;
 Season spring = (Season)seasonNumber;
 
-decimal a = 10.1m;
+// decimal a = 10000000000000000000.1m;
+// int c = (int)a;
 
-int integer = 10;
+var integer = 10;
 decimal b = integer;
 Console.WriteLine(b);
+// string s = (string)integer;
+string s = integer.ToString();
+
+var secondSeasonNumber = 11;
+Season summer = (Season)secondSeasonNumber;
+Console.WriteLine(summer);
 
 public enum Season
 {
