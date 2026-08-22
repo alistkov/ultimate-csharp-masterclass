@@ -1,25 +1,24 @@
-﻿var seasonNumber = 0;
-Season spring = (Season)seasonNumber;
+﻿Ingredient ingredient = new Cheddar(2, 12);
+// Cheddar cheddar = ingredient;
+Ingredient randomIngredient = GenerateRandomIngredient();
+Console.WriteLine("Random ingredient " + randomIngredient);
+Cheddar cheddar = (Cheddar)randomIngredient;
 
-// decimal a = 10000000000000000000.1m;
-// int c = (int)a;
-
-var integer = 10;
-decimal b = integer;
-Console.WriteLine(b);
-// string s = (string)integer;
-string s = integer.ToString();
-
-var secondSeasonNumber = 11;
-Season summer = (Season)secondSeasonNumber;
-Console.WriteLine(summer);
-
-public enum Season
+Ingredient GenerateRandomIngredient()
 {
-    Spring,
-    Summer,
-    Autumn,
-    Winter
+    var random = new Random();
+    var number = random.Next(1, 4);
+    if (number == 1)
+    {
+        return new Cheddar(2, 12);
+    }
+
+    if (number == 2)
+    {
+        return new TomatoSauce(1);
+    }
+
+    return new Mozzarella(2);
 }
 
 public class Pizza
