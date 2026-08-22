@@ -1,18 +1,7 @@
-﻿// var pizza = new Pizza();
-// Console.WriteLine(pizza.number);
-// Console.WriteLine(pizza.date);
-// Console.WriteLine(pizza.ingredient);
+﻿Ingredient ingredient = GenerateRandomIngredient();
+Cheddar cheddar = ingredient as Cheddar;
+Console.WriteLine(cheddar is not null ? cheddar.Name : "Conversion failed");
 
-using UltimateCourse;
-
-Console.WriteLine(NumericTypesDescriber.Describe(5));
-
-Ingredient nullIngredient = null;
-
-if (nullIngredient is not null)
-{
-    Console.WriteLine(nullIngredient.Name);
-}
 
 Ingredient GenerateRandomIngredient()
 {
