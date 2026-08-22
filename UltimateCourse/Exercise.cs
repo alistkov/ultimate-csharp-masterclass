@@ -2,40 +2,56 @@ namespace UltimateCourse;
 
 public class Exercise
 {
-    public List<int> GetCountsOfAnimalsLegs()
+    public List<string> ProcessAll(List<string> words)
     {
-        var animals = new List<Animal>
+        var stringsProcessors = new List<StringsProcessor>
         {
-            new Lion(),
-            new Tiger(),
-            new Duck(),
-            new Spider()
+            new StringsTrimmingProcessor(),
+            new StringsUppercaseProcessor()
         };
-            
-        var result = new List<int>();
-        foreach(var animal in animals)
+    
+        List<string> result = words;
+        foreach (var stringsProcessor in stringsProcessors)
         {
-            result.Add(animal.NumberOfLegs);
+            result = stringsProcessor.Process(result);
         }
         return result;
     }
 }
 
-public class Animal
+
+public class StringsProcessor
 {
-    public virtual int NumberOfLegs { get; } = 4;
+    public virtual List<string> Process(List<string> words) => words;
 }
 
-public class Lion : Animal {}
-
-public class Tiger : Animal {}
-
-public class Duck : Animal
+public class StringsUppercaseProcessor : StringsProcessor
 {
-    public override int NumberOfLegs { get; } = 2;
+    public override List<string> Process(List<string> words)
+    {
+        var result = new List<string>();
+
+        foreach (var word in words)
+        {
+            result.Add(word.ToUpper());
+        }
+
+        return result;
+    }
 }
 
-public class Spider : Animal
+public class StringsTrimmingProcessor : StringsProcessor
 {
-    public override int NumberOfLegs { get; } = 8;
+    public override List<string> Process(List<string> words)
+    {
+        var result = new List<string>();
+
+        foreach (var word in words)
+        {
+            var stringLength = word.Length;
+            result.Add(word.Substring(0, stringLength / 2));
+        }
+
+        return result;
+    }
 }

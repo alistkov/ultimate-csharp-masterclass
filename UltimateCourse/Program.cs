@@ -8,15 +8,13 @@
 // Ingredient ingredient = new Cheddar();
 // Console.WriteLine(ingredient.Name);
 
-var numbers = new List<int> { 1, 4, 6, -1, 12, 44, -8, -19 };
-var shallAddOnlyPositive = false;
-var calculator = shallAddOnlyPositive
-    ? new PositiveNumbersSumCalculator()
-    : new NumbersSumCalculator();
-
-var sum = calculator.Calculate(numbers);
-
-Console.WriteLine($"Sum is {sum}");
+var words = new List<string> { "bobcat", "wolverine", "grizzly" };
+var exercise = new Exercise();
+var processedWords = exercise.ProcessAll(words);
+foreach (var processedWord in processedWords)
+{
+    Console.WriteLine(processedWord);
+}
 
 
 // var ingredients = new List<Ingredient>
