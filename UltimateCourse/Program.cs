@@ -1,12 +1,12 @@
-﻿var cheddar = new Cheddar();
+﻿var cheddar = new Cheddar(2, 3);
 Console.WriteLine(cheddar);
 
-var pizza = new Pizza();
-pizza.AddIngredient(new Mozzarella());
-pizza.AddIngredient(new Cheddar());
-pizza.AddIngredient(new TomatoSauce());
-
-Console.WriteLine(pizza);
+// var pizza = new Pizza();
+// pizza.AddIngredient(new Mozzarella());
+// pizza.AddIngredient(new Cheddar());
+// pizza.AddIngredient(new TomatoSauce());
+//
+// Console.WriteLine(pizza);
 
 public class Pizza
 {
@@ -23,6 +23,12 @@ public class Pizza
 
 public class Ingredient
 {
+    public Ingredient(int priceIfExtraTopping)
+    {
+        PriceIfExtraTopping = priceIfExtraTopping;
+    }
+
+    public int PriceIfExtraTopping { get; }
     public virtual string Name { get; } = "Some ingredient";
 
     public int PublicField;
@@ -39,12 +45,24 @@ public class Ingredient
     public override string ToString() => Name;
 }
 
-public class Cheese : Ingredient {}
-
-public class ItalianFood {}
-
-public class Cheddar : Cheese
+public class Cheese : Ingredient
 {
+    public Cheese(int priceIfExtraTopping) : base(priceIfExtraTopping)
+    {
+    }
+}
+
+public class ItalianFood
+{
+}
+
+public class Cheddar : Ingredient
+{
+    public Cheddar(int priceIfExtraTopping, int agedForMonth) : base(priceIfExtraTopping)
+    {
+        AgedForMonths = agedForMonth;
+    }
+
     public override string Name => "Cheddar cheese";
 
     public int AgedForMonths { get; }
@@ -52,6 +70,10 @@ public class Cheddar : Cheese
 
 public class TomatoSauce : Ingredient
 {
+    public TomatoSauce(int priceIfExtraTopping) : base(priceIfExtraTopping)
+    {
+    }
+
     public override string Name => "Tomato sauce";
 
     public int TomatoesIn100Grams { get; }
@@ -59,6 +81,10 @@ public class TomatoSauce : Ingredient
 
 public class Mozzarella : Cheese
 {
+    public Mozzarella(int priceIfExtraTopping) : base(priceIfExtraTopping)
+    {
+    }
+
     public override string Name => "Mozzarella";
 
     public bool IsLight { get; }
