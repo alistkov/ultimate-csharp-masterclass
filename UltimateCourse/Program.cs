@@ -1,5 +1,14 @@
 ﻿// Ingredient ingredient = new Ingredient(1);
 
+using UltimateCourse;
+
+var square = new Square(2.6);
+var rectangle = new Rectangle(11, 4.6);
+var circle = new Circle(1);
+
+Console.WriteLine(square.CalculateArea());
+Console.WriteLine(rectangle.CalculateArea());
+Console.WriteLine(circle.CalculateArea());
 
 Ingredient GenerateRandomIngredient()
 {
