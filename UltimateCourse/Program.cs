@@ -34,6 +34,8 @@ public class Ingredient
 
 public class Cheese : Ingredient {}
 
+public class ItalianFood {}
+
 public class Cheddar : Cheese
 {
     public override string Name => "Cheddar cheese";
