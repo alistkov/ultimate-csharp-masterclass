@@ -2,7 +2,23 @@
 // Cheddar cheddar = ingredient;
 Ingredient randomIngredient = GenerateRandomIngredient();
 Console.WriteLine("Random ingredient " + randomIngredient);
-Cheddar cheddar = (Cheddar)randomIngredient;
+
+Console.WriteLine($"is object? {ingredient is object}");
+Console.WriteLine($"is ingredient? {ingredient is Ingredient}");
+Console.WriteLine($"is cheddar? {ingredient is Cheddar}");
+Console.WriteLine($"is mozzarella? {ingredient is Mozzarella}");
+Console.WriteLine($"is tomato sauce? {ingredient is TomatoSauce}");
+
+// if (randomIngredient is Cheddar)
+// {
+//     Cheddar cheddar = (Cheddar)randomIngredient;
+//     Console.WriteLine($"cheddar object {cheddar}");
+// }
+
+if (randomIngredient is Cheddar cheddar)
+{
+    Console.WriteLine($"cheddar object {cheddar}");
+}
 
 Ingredient GenerateRandomIngredient()
 {
