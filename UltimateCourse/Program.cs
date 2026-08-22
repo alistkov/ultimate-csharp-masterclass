@@ -1,29 +1,20 @@
-﻿Ingredient ingredient = new Cheddar(2, 12);
-// Cheddar cheddar = ingredient;
-Ingredient randomIngredient = GenerateRandomIngredient();
-Console.WriteLine("Random ingredient " + randomIngredient);
+﻿// var pizza = new Pizza();
+// Console.WriteLine(pizza.number);
+// Console.WriteLine(pizza.date);
+// Console.WriteLine(pizza.ingredient);
 
-Console.WriteLine($"is object? {ingredient is object}");
-Console.WriteLine($"is ingredient? {ingredient is Ingredient}");
-Console.WriteLine($"is cheddar? {ingredient is Cheddar}");
-Console.WriteLine($"is mozzarella? {ingredient is Mozzarella}");
-Console.WriteLine($"is tomato sauce? {ingredient is TomatoSauce}");
+Ingredient nullIngredient = null;
 
-// if (randomIngredient is Cheddar)
-// {
-//     Cheddar cheddar = (Cheddar)randomIngredient;
-//     Console.WriteLine($"cheddar object {cheddar}");
-// }
-
-if (randomIngredient is Cheddar cheddar)
+if (nullIngredient is not null)
 {
-    Console.WriteLine($"cheddar object {cheddar}");
+    Console.WriteLine(nullIngredient.Name);
 }
 
 Ingredient GenerateRandomIngredient()
 {
     var random = new Random();
     var number = random.Next(1, 4);
+    
     if (number == 1)
     {
         return new Cheddar(2, 12);
@@ -39,6 +30,10 @@ Ingredient GenerateRandomIngredient()
 
 public class Pizza
 {
+    public int number;
+    public DateTime date;
+    public Ingredient ingredient;
+
     private List<Ingredient> _ingredients = new List<Ingredient>();
 
     public void AddIngredient(Ingredient ingredient)
