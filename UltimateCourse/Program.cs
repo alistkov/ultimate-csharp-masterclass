@@ -1,7 +1,12 @@
-﻿var pizza = new Pizza();
-pizza.AddIngredient(new Cheddar());
+﻿var cheddar = new Cheddar();
+Console.WriteLine(cheddar);
+
+var pizza = new Pizza();
 pizza.AddIngredient(new Mozzarella());
+pizza.AddIngredient(new Cheddar());
 pizza.AddIngredient(new TomatoSauce());
+
+Console.WriteLine(pizza);
 
 public class Pizza
 {
@@ -12,8 +17,8 @@ public class Pizza
         _ingredients.Add(ingredient);
     }
 
-    public string Describe() =>
-        $"This is a pizza with {string.Join(", ", _ingredients)}";
+    public override string ToString() =>
+        $"This is a pizza with {string.Join(", ", _ingredients)} ingredients";
 }
 
 public class Ingredient
@@ -30,6 +35,8 @@ public class Ingredient
 
     protected string ProtectedMethods() =>
         "This method is PROTECTED in the Ingredient class";
+
+    public override string ToString() => Name;
 }
 
 public class Cheese : Ingredient {}
