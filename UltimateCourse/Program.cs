@@ -1,4 +1,6 @@
-﻿// Console.WriteLine("Variable of type Cheddar");
+﻿using UltimateCourse;
+
+// Console.WriteLine("Variable of type Cheddar");
 // var cheddar = new Cheddar();
 // Console.WriteLine(cheddar.Name);
 //
@@ -6,17 +8,28 @@
 // Ingredient ingredient = new Cheddar();
 // Console.WriteLine(ingredient.Name);
 
-var ingredients = new List<Ingredient>
-{
-    new Cheddar(),
-    new TomatoSauce(),
-    new Mozzarella()
-};
+var numbers = new List<int> { 1, 4, 6, -1, 12, 44, -8, -19 };
+var shallAddOnlyPositive = false;
+var calculator = shallAddOnlyPositive
+    ? new PositiveNumbersSumCalculator()
+    : new NumbersSumCalculator();
 
-foreach (var ingredient in ingredients)
-{
-    Console.WriteLine(ingredient.Name);
-}
+var sum = calculator.Calculate(numbers);
+
+Console.WriteLine($"Sum is {sum}");
+
+
+// var ingredients = new List<Ingredient>
+// {
+//     new Cheddar(),
+//     new TomatoSauce(),
+//     new Mozzarella()
+// };
+//
+// foreach (var ingredient in ingredients)
+// {
+//     Console.WriteLine(ingredient.Name);
+// }
 
 public class Pizza
 {
