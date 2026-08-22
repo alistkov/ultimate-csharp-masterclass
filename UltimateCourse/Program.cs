@@ -1,33 +1,7 @@
-﻿using UltimateCourse;
-
-// Console.WriteLine("Variable of type Cheddar");
-// var cheddar = new Cheddar();
-// Console.WriteLine(cheddar.Name);
-//
-// Console.WriteLine("Variable of type Ingredient");
-// Ingredient ingredient = new Cheddar();
-// Console.WriteLine(ingredient.Name);
-
-var words = new List<string> { "bobcat", "wolverine", "grizzly" };
-var exercise = new Exercise();
-var processedWords = exercise.ProcessAll(words);
-foreach (var processedWord in processedWords)
-{
-    Console.WriteLine(processedWord);
-}
-
-
-// var ingredients = new List<Ingredient>
-// {
-//     new Cheddar(),
-//     new TomatoSauce(),
-//     new Mozzarella()
-// };
-//
-// foreach (var ingredient in ingredients)
-// {
-//     Console.WriteLine(ingredient.Name);
-// }
+﻿var pizza = new Pizza();
+pizza.AddIngredient(new Cheddar());
+pizza.AddIngredient(new Mozzarella());
+pizza.AddIngredient(new TomatoSauce());
 
 public class Pizza
 {
@@ -58,7 +32,9 @@ public class Ingredient
         "This method is PROTECTED in the Ingredient class";
 }
 
-public class Cheddar : Ingredient
+public class Cheese : Ingredient {}
+
+public class Cheddar : Cheese
 {
     public override string Name => "Cheddar cheese";
 
@@ -72,7 +48,7 @@ public class TomatoSauce : Ingredient
     public int TomatoesIn100Grams { get; }
 }
 
-public class Mozzarella : Ingredient
+public class Mozzarella : Cheese
 {
     public override string Name => "Mozzarella";
 
