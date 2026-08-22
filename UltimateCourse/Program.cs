@@ -1,6 +1,4 @@
-﻿Ingredient ingredient = GenerateRandomIngredient();
-Cheddar cheddar = ingredient as Cheddar;
-Console.WriteLine(cheddar is not null ? cheddar.Name : "Conversion failed");
+﻿// Ingredient ingredient = new Ingredient(1);
 
 
 Ingredient GenerateRandomIngredient()
@@ -38,15 +36,12 @@ public class Pizza
         $"This is a pizza with {string.Join(", ", _ingredients)} ingredients";
 }
 
-public class Ingredient
+public abstract class Ingredient(int priceIfExtraTopping)
 {
-    public Ingredient(int priceIfExtraTopping)
-    {
-        PriceIfExtraTopping = priceIfExtraTopping;
-    }
-
-    public int PriceIfExtraTopping { get; }
+    public int PriceIfExtraTopping { get; } = priceIfExtraTopping;
     public virtual string Name { get; } = "Some ingredient";
+
+    public abstract void Prepare();
 
     public int PublicField;
 
@@ -62,12 +57,8 @@ public class Ingredient
     public override string ToString() => Name;
 }
 
-public class Cheese : Ingredient
-{
-    public Cheese(int priceIfExtraTopping) : base(priceIfExtraTopping)
-    {
-    }
-}
+public abstract class Cheese(int priceIfExtraTopping) : Ingredient(priceIfExtraTopping)
+{}
 
 public class ItalianFood
 {
@@ -82,6 +73,9 @@ public class Cheddar : Ingredient
 
     public override string Name => $"{base.Name}, more specifially, a Cheddar cheese for {AgedForMonths} months";
 
+    public override void Prepare() =>
+        Console.WriteLine("Grate and sprinkle over the pizza");
+
     public int AgedForMonths { get; }
 }
 
@@ -93,6 +87,9 @@ public class TomatoSauce : Ingredient
 
     public override string Name => "Tomato sauce";
 
+    public override void Prepare() =>
+        Console.WriteLine("Cook tomatoes with basil, garlic and salt. Spread on pizza,");
+
     public int TomatoesIn100Grams { get; }
 }
 
@@ -103,6 +100,9 @@ public class Mozzarella : Cheese
     }
 
     public override string Name => "Mozzarella";
+
+    public override void Prepare() =>
+        Console.WriteLine("Slice tinly and place on top of the pizza");
 
     public bool IsLight { get; }
 }
