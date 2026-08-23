@@ -16,8 +16,5 @@ public class Pizza : IBakeable
     public override string ToString() =>
         $"This is a pizza with {string.Join(", ", _ingredients)} ingredients";
 
-    public string GetInstruction()
-    {
-        throw new NotImplementedException();
-    }
+    public string GetInstruction() => "Bake at 250 degrees Celsius for 10 minutes, ideally on a stone";
 }
