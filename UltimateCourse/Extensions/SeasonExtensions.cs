@@ -1,6 +1,6 @@
 namespace UltimateCourse.Extensions;
 
-public static class SeasonExtension
+public static class SeasonExtensions
 {
     public static Season Next(this Season season)
     {
