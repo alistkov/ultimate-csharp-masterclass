@@ -1,12 +1,4 @@
 ﻿using UltimateCourse;
 
-var bakedDishes = new List<IBakeable>
-{
-    new Pizza(),
-    new Panettone()
-};
-
-foreach (var bakedDish in bakedDishes)
-{
-    Console.WriteLine(bakedDish.GetInstruction());
-}
+var result = Exercise.Transform(4);
+Console.WriteLine(result);

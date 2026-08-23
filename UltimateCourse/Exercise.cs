@@ -1,57 +1,52 @@
 namespace UltimateCourse;
 
-public class Exercise
+public static class Exercise
 {
-    public List<string> ProcessAll(List<string> words)
+    public static int Transform(
+        int number)
     {
-        var stringsProcessors = new List<StringsProcessor>
+        var transformations = new List<INumericTransformation>
         {
-            new StringsTrimmingProcessor(),
-            new StringsUppercaseProcessor()
+            new By1Incrementer(),
+            new By2Multiplier(),
+            new ToPowerOf2Raiser()
         };
-    
-        List<string> result = words;
-        foreach (var stringsProcessor in stringsProcessors)
+            
+        var result = number;
+        foreach(var transformation in transformations)
         {
-            result = stringsProcessor.Process(result);
+            result = transformation.Transform(result);
         }
         return result;
     }
 }
 
-
-public class StringsProcessor
+interface INumericTransformation
 {
-    public virtual List<string> Process(List<string> words) => words;
+    int Transform(int number);
 }
 
-public class StringsUppercaseProcessor : StringsProcessor
+public class By1Incrementer : INumericTransformation
 {
-    public override List<string> Process(List<string> words)
+    public int Transform(int number)
     {
-        var result = new List<string>();
-
-        foreach (var word in words)
-        {
-            result.Add(word.ToUpper());
-        }
-
-        return result;
+        return number + 1;
     }
 }
 
-public class StringsTrimmingProcessor : StringsProcessor
+public class By2Multiplier : INumericTransformation
 {
-    public override List<string> Process(List<string> words)
+    public int Transform(int number)
     {
-        var result = new List<string>();
-
-        foreach (var word in words)
-        {
-            var stringLength = word.Length;
-            result.Add(word.Substring(0, stringLength / 2));
-        }
-
-        return result;
+        return number * 2;
     }
 }
+
+public class ToPowerOf2Raiser : INumericTransformation
+{
+    public int Transform(int number)
+    {
+        return (int)Math.Pow(number, 2);
+    }
+}
+
