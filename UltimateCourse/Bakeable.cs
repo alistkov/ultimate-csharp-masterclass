@@ -1,7 +1,6 @@
 namespace UltimateCourse;
 
-public abstract class Bakeable
+interface IBakeable
 {
-    public abstract string GetInstruction();
-    
+    string GetInstruction();
 }

@@ -1,6 +1,6 @@
 ﻿using UltimateCourse;
 
-var bakedDishes = new List<object>
+var bakedDishes = new List<IBakeable>
 {
     new Pizza(),
     new Panettone()

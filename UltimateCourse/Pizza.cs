@@ -1,6 +1,6 @@
 namespace UltimateCourse;
 
-public class Pizza : Bakeable
+public class Pizza : IBakeable
 {
     public int number;
     public DateTime date;
@@ -16,7 +16,7 @@ public class Pizza : Bakeable
     public override string ToString() =>
         $"This is a pizza with {string.Join(", ", _ingredients)} ingredients";
 
-    public override string GetInstruction()
+    public string GetInstruction()
     {
         throw new NotImplementedException();
     }
