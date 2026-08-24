@@ -1,3 +1,5 @@
+using CookieCookbook.Recipes;
+
 namespace CookieCookbook;
 
 public class CookiesRecipesApp(IRecipesRepository recipesRepository, IRecipesUserInteraction recipesUserInteraction)
