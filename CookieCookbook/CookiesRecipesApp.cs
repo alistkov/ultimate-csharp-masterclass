@@ -12,8 +12,8 @@ public class CookiesRecipesApp(IRecipesRepository recipesRepository, IRecipesUse
         var allRecipes = _recipesRepository.Read(filePath);
         _recipesUserInteraction.PrintExistingRecipes(allRecipes);
 
-        // _recipesUserInteraction.PromptToCreateRecipe();
-        //
+        _recipesUserInteraction.PromptToCreateRecipe();
+        
         // var ingredients = _recipesUserInteraction.ReadIngredientsFromUser();
         //
         // if (ingredients.Count > 0)

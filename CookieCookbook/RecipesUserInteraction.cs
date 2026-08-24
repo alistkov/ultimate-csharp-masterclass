@@ -3,8 +3,10 @@ using CookieCookbook.Recipes.Ingredients;
 
 namespace CookieCookbook;
 
-public class RecipesConsoleUserInteraction : IRecipesUserInteraction
+public class RecipesConsoleUserInteraction(IngredientRegister ingredientRegister) : IRecipesUserInteraction
 {
+    private readonly IngredientRegister _ingredientRegister = ingredientRegister;
+
     public void Exit()
     {
         Console.WriteLine("Press any key to close.");
@@ -30,7 +32,12 @@ public class RecipesConsoleUserInteraction : IRecipesUserInteraction
 
     public void PromptToCreateRecipe()
     {
-        throw new NotImplementedException();
+        Console.WriteLine("Create a new cookie recipe! Available ingredients are: ");
+
+        foreach (var ingredient in _ingredientRegister.All)
+        {
+            Console.WriteLine(ingredient);
+        }
     }
 
     public IEnumerable<Ingredient> ReadIngredientsFromUser()
