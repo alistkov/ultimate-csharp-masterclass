@@ -3,7 +3,7 @@ using CookieCookbook.Recipes.Ingredients;
 
 namespace CookieCookbook;
 
-public class IngredientRegister
+public class IngredientRegister : IIngredientRegister
 {
     public IEnumerable<Ingredient> All { get; } = new List<Ingredient>
     {
@@ -17,7 +17,7 @@ public class IngredientRegister
         new CocoaPowder()
     };
 
-    public Ingredient? GetById(int id)
+    public Ingredient GetById(int id)
     {
         foreach (var ingredient in All)
         {

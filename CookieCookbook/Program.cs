@@ -1,10 +1,13 @@
 ﻿using CookieCookbook;
 
+var ingredientsRegister = new IngredientRegister();
+
 var cookiesRecipesApp = new CookiesRecipesApp(
-    new RecipesRepository(),
+    new RecipesRepository(
+        new StringsTextualRepository(),
+        ingredientsRegister),
     new RecipesConsoleUserInteraction(
-        new IngredientRegister()
-    )
+        ingredientsRegister)
 );
 
 cookiesRecipesApp.Run("recipes.txt");

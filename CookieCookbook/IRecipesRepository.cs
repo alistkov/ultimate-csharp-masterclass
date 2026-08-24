@@ -4,6 +4,6 @@ namespace CookieCookbook;
 
 public interface IRecipesRepository
 {
-    void Write(object filePath, object allRecipes);
+    void Write(string filePath, List<Recipe> strings);
     List<Recipe> Read(string filePath);
 }
