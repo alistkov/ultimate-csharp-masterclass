@@ -1,6 +1,6 @@
 using CookieCookbook.Recipes;
 
-namespace CookieCookbook;
+namespace CookieCookbook.App;
 
 public class CookiesRecipesApp(IRecipesRepository recipesRepository, IRecipesUserInteraction recipesUserInteraction)
 {

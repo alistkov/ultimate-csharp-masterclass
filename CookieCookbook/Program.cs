@@ -1,4 +1,8 @@
-﻿using CookieCookbook;
+﻿using CookieCookbook.App;
+using CookieCookbook.DataAccess;
+using CookieCookbook.FileAccess;
+using CookieCookbook.Recipes;
+using CookieCookbook.Recipes.Ingredients;
 
 const FileFormat Format = FileFormat.Json;
 IStringsRepository stringsRepository = Format == FileFormat.Json

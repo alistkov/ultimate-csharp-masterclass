@@ -1,7 +1,7 @@
-using CookieCookbook.Recipes;
+using CookieCookbook.DataAccess;
 using CookieCookbook.Recipes.Ingredients;
 
-namespace CookieCookbook;
+namespace CookieCookbook.Recipes;
 
 public class RecipesRepository(
     IStringsRepository stringsRepository, IIngredientRegister ingredientRegister

@@ -1,4 +1,4 @@
-namespace CookieCookbook;
+namespace CookieCookbook.FileAccess;
 
 public class FileMetadata(string name, FileFormat format)
 {

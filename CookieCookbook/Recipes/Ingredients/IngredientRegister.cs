@@ -1,7 +1,4 @@
-using System.Collections;
-using CookieCookbook.Recipes.Ingredients;
-
-namespace CookieCookbook;
+namespace CookieCookbook.Recipes.Ingredients;
 
 public class IngredientRegister : IIngredientRegister
 {

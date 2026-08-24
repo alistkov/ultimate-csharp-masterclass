@@ -1,4 +1,4 @@
-namespace CookieCookbook;
+namespace CookieCookbook.DataAccess;
 
 public abstract class StringRepository : IStringsRepository
 {
