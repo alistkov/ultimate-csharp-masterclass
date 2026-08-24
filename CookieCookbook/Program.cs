@@ -1,12 +1,12 @@
 ﻿using CookieCookbook;
 
-const FileFormat format = FileFormat.Json;
-IStringsRepository stringsRepository = format == FileFormat.Json
+const FileFormat Format = FileFormat.Json;
+IStringsRepository stringsRepository = Format == FileFormat.Json
     ? new StringJsonRepository()
     : new StringsTextualRepository();
 
-const string fileName = "recipe";
-var fileMetadata = new FileMetadata(fileName, format);
+const string FileName = "recipe";
+var fileMetadata = new FileMetadata(FileName, Format);
 
 var ingredientsRegister = new IngredientRegister();
 
