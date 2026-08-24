@@ -1,9 +1,9 @@
 namespace CookieCookbook;
 
-public class CookiesRecipesApp(RecipesRepository recipesRepository, RecipesUserInteraction recipesUserInteraction)
+public class CookiesRecipesApp(IRecipesRepository recipesRepository, IRecipesUserInteraction recipesUserInteraction)
 {
-    private readonly RecipesRepository _recipesRepository = recipesRepository;
-    private readonly RecipesUserInteraction _recipesUserInteraction = recipesUserInteraction;
+    private readonly IRecipesRepository _recipesRepository = recipesRepository;
+    private readonly IRecipesUserInteraction _recipesUserInteraction = recipesUserInteraction;
 
     public void Run()
     {
@@ -25,7 +25,7 @@ public class CookiesRecipesApp(RecipesRepository recipesRepository, RecipesUserI
         }
         else
         {
-            _recipesUserInteraction.PrintMessage("No ingredients have been selected. Recipe will not be saved");
+            _recipesUserInteraction.ShowMessage("No ingredients have been selected. Recipe will not be saved");
         }
 
         _recipesUserInteraction.Exit();
