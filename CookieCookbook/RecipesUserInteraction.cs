@@ -42,7 +42,30 @@ public class RecipesConsoleUserInteraction(IngredientRegister ingredientRegister
 
     public IEnumerable<Ingredient> ReadIngredientsFromUser()
     {
-        throw new NotImplementedException();
+        var shouldStop = false;
+        var ingredients = new List<Ingredient>();
+
+        while (!shouldStop)
+        {
+            Console.WriteLine("Add an ingredient by its ID, or type anything else if finished.");
+
+            var userInput = Console.ReadLine();
+            if (int.TryParse(userInput, out var id))
+            {
+                var selectedIngredient = _ingredientRegister.GetById(id);
+
+                if (selectedIngredient is not null)
+                {
+                    ingredients.Add(selectedIngredient);
+                }
+            }
+            else
+            {
+                shouldStop = true;
+            }
+        }
+
+        return ingredients;
     }
 
     public void ShowMessage(string message)

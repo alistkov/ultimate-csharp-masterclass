@@ -16,4 +16,16 @@ public class IngredientRegister
         new Cinnamon(),
         new CocoaPowder()
     };
+
+    public Ingredient? GetById(int id)
+    {
+        foreach (var ingredient in All)
+        {
+            if (ingredient.Id == id)
+            {
+                return ingredient;
+            }
+        }
+        return null;
+    }
 }
