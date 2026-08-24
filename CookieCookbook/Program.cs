@@ -1,13 +1,21 @@
 ﻿using CookieCookbook;
 
+const FileFormat format = FileFormat.Json;
+IStringsRepository stringsRepository = format == FileFormat.Json
+    ? new StringJsonRepository()
+    : new StringsTextualRepository();
+
+const string fileName = "recipe";
+var fileMetadata = new FileMetadata(fileName, format);
+
 var ingredientsRegister = new IngredientRegister();
 
 var cookiesRecipesApp = new CookiesRecipesApp(
     new RecipesRepository(
-        new StringsTextualRepository(),
+        stringsRepository,
         ingredientsRegister),
     new RecipesConsoleUserInteraction(
         ingredientsRegister)
 );
 
-cookiesRecipesApp.Run("recipes.txt");
+cookiesRecipesApp.Run(fileMetadata.ToPath());
