@@ -8,18 +8,17 @@ public class Person
 
     public Person(string name, int yearOfBirth)
     {
-        if (name is null)
+        switch (name)
         {
-            throw new ArgumentNullException();
-        }
-        if (name == string.Empty)
-        {
-            throw new ArgumentException("The name cannot be empty");
+            case null:
+                throw new ArgumentNullException(nameof(name));
+            case "":
+                throw new ArgumentException("The name cannot be empty");
         }
 
         if (yearOfBirth < 1900 || yearOfBirth > DateTime.Now.Year)
         {
-            throw new ArgumentOutOfRangeException();
+            throw new ArgumentOutOfRangeException(nameof(yearOfBirth));
         }
 
         Name = name;
