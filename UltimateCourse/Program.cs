@@ -1,12 +1,13 @@
 ﻿using UltimateCourse;
 
-var invalidPerson = new Person("Sam", -100);
-
-var emptyCollection = new List<int>();
-var firstElement = GetFirstElement(Array.Empty<int>());
-var firstUsingLinq = emptyCollection.First();
-
-var numbers = new int[] { 1, 2, 4 };
+try
+{
+    var result = IsFirstPositive(null);
+}
+catch (NullReferenceException ex)
+{
+    
+}
 
 int GetFirstElement(IEnumerable<int> numbers)
 {
@@ -32,6 +33,8 @@ bool IsFirstPositive(IEnumerable<int> numbers)
     }
     catch (NullReferenceException ex)
     {
+        Console.WriteLine("Sorry! The application experienced an unexpected error");
+        // throw;
         throw new ArgumentNullException("The collection is null.", ex);
     }
 }
