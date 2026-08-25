@@ -1,12 +1,12 @@
-﻿try
-{
-    var result = GetFirstElement(Array.Empty<int>());
-}
-catch (Exception ex)
-{
-    Console.WriteLine(ex.Message);
-}
+﻿using UltimateCourse;
 
+var invalidPerson = new Person("", -100);
+
+var emptyCollection = new List<int>();
+var firstElement = GetFirstElement(Array.Empty<int>());
+var firstUsingLinq = emptyCollection.First();
+
+var numbers = new int[] { 1, 2, 4 };
 
 int GetFirstElement(IEnumerable<int> numbers)
 {
