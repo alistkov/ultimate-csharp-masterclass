@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="GameDataParser/GameDataParser.csproj" />
   <Project Path="UltimateCourse/UltimateCourse.csproj" />
 </Solution>
