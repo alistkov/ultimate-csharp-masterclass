@@ -1,40 +1,27 @@
-﻿using UltimateCourse;
+﻿using System.Runtime.Serialization;
 
-try
-{
-    var result = IsFirstPositive(null);
-}
-catch (NullReferenceException ex)
-{
-    
-}
+throw new CustomException();
 
-int GetFirstElement(IEnumerable<int> numbers)
+[Serializable]
+public class CustomException : Exception
 {
-    foreach (var number in numbers)
+    public int StatusCode { get; }
+
+    protected CustomException(SerializationInfo info, StreamingContext context)
     {
-        return number;
     }
 
-    throw new InvalidOperationException("The collection cannot be empty");
-}
+    public CustomException()
+    {
+    }
 
-bool IsFirstPositive(IEnumerable<int> numbers)
-{
-    try
+    public CustomException(string message, int statusCode) : base(message)
     {
-        var first = GetFirstElement(numbers);
-        return first > 0;
+        StatusCode = statusCode;
     }
-    catch (InvalidOperationException ex)
+
+    public CustomException(string message, int statusCode, Exception innerException) : base(message, innerException)
     {
-        Console.WriteLine("The collection is empty!");
-        return true;
-    }
-    catch (NullReferenceException ex)
-    {
-        Console.WriteLine("Sorry! The application experienced an unexpected error");
-        // throw;
-        throw new ArgumentNullException("The collection is null.", ex);
+        StatusCode = statusCode;
     }
 }
