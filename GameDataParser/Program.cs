@@ -25,24 +25,25 @@ public class GameDataParserApp
         var fileContent = default(string);
         do
         {
-            try
-            {
-                Console.WriteLine("Enter the name of the file you want to read: ");
-                fileName = Console.ReadLine();
-                fileContent = File.ReadAllText(fileName);
-                isFileRead = true;
-            }
-            catch (ArgumentNullException ex)
+            Console.WriteLine("Enter the name of the file you want to read: ");
+            fileName = Console.ReadLine();
+
+            if (fileName is null)
             {
                 Console.WriteLine("The filename cannot be null");
             }
-            catch (ArgumentException ex)
+            else if (fileName == string.Empty)
             {
                 Console.WriteLine("The filename cannot be empty");
             }
-            catch (FileNotFoundException ex)
+            else if (!File.Exists(fileName))
             {
                 Console.WriteLine("The file does not exist");
+            }
+            else
+            {
+                fileContent = File.ReadAllText(fileName);
+                isFileRead = true;
             }
         } while (!isFileRead);
 
