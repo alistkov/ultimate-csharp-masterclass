@@ -1,13 +1,14 @@
 ﻿using System.Text.Json;
 
 bool isFileRead = false;
+var fileName = default(string);
 var fileContent = default(string);
 do
 {
     try
     {
         Console.WriteLine("Enter the name of the file you want to read: ");
-        var fileName = Console.ReadLine();
+        fileName = Console.ReadLine();
         fileContent = File.ReadAllText(fileName);
         isFileRead = true;
     }
@@ -25,9 +26,21 @@ do
     }
 } while (!isFileRead);
 
-var videoGames = JsonSerializer.Deserialize<List<VideoGame>>(fileContent);
 
-
+List<VideoGame> videoGames;
+try
+{
+    videoGames = JsonSerializer.Deserialize<List<VideoGame>>(fileContent);
+}
+catch (JsonException ex)
+{
+    var originalColor = Console.ForegroundColor;
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine($"JSON in {fileName} was not in valid format. JSON body:");
+    Console.WriteLine(fileContent);
+    Console.ForegroundColor = originalColor;
+    throw new JsonException($"{ex.Message} the file is: {fileName}", ex);
+}
 
 if (videoGames is not null && videoGames.Count > 0)
 {
