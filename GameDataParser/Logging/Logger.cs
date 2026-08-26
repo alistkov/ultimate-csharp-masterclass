@@ -1,3 +1,5 @@
+namespace GameDataParser.Logging;
+
 public class Logger(string logFileName)
 {
     private readonly string _logFileName = logFileName;

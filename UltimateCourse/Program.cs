@@ -1,27 +1,31 @@
 ﻿using System.Runtime.Serialization;
+using UltimateCourse;
 
 throw new CustomException();
 
-[Serializable]
-public class CustomException : Exception
+namespace UltimateCourse
 {
-    public int StatusCode { get; }
-
-    protected CustomException(SerializationInfo info, StreamingContext context)
+    [Serializable]
+    public class CustomException : Exception
     {
-    }
+        public int StatusCode { get; }
 
-    public CustomException()
-    {
-    }
+        protected CustomException(SerializationInfo info, StreamingContext context)
+        {
+        }
 
-    public CustomException(string message, int statusCode) : base(message)
-    {
-        StatusCode = statusCode;
-    }
+        public CustomException()
+        {
+        }
 
-    public CustomException(string message, int statusCode, Exception innerException) : base(message, innerException)
-    {
-        StatusCode = statusCode;
+        public CustomException(string message, int statusCode) : base(message)
+        {
+            StatusCode = statusCode;
+        }
+
+        public CustomException(string message, int statusCode, Exception innerException) : base(message, innerException)
+        {
+            StatusCode = statusCode;
+        }
     }
 }
