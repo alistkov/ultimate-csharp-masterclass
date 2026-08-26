@@ -2,21 +2,20 @@ namespace UltimateCourse;
 
 public class ExceptionsDivisionExercise
 {
-    public static int DivideNumbers(int a, int b)
+    public static int GetMaxValue(List<int> numbers)
     {
-        //your code goes here
         try
         {
-            return a / b;
+            return numbers.Max();
         }
-        catch
+        catch (ArgumentNullException ex)
         {
-            Console.WriteLine("Division by zero.");
-            return 0;
+            throw new ArgumentNullException("The numbers list cannot be null.", ex);
         }
-        finally
+        catch (InvalidOperationException ex)
         {
-            Console.WriteLine("The DivideNumbers method ends.");
+            Console.WriteLine("The collection is empty!");
+            throw;
         }
     }
 }
