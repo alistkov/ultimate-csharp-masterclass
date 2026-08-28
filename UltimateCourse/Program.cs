@@ -1,69 +1,72 @@
-﻿var numbers = new SimplifiedList<int>();
+﻿var numbers = new List<int> { 5, 3, 2, 8, 16, 7 };
+// var minAndMax = GetMinAndMax(numbers);
+// Console.WriteLine($"Min value {minAndMax.Int1}");
+// Console.WriteLine($"Max value {minAndMax.Int2}");
 
-numbers.Add(10);
-numbers.Add(20);
-numbers.Add(30);
-numbers.Add(40);
-numbers.Add(50);
+var minAndMax = CalculateMaxAndMin(numbers);
+Console.WriteLine($"Min value {minAndMax.Min}");
+Console.WriteLine($"Max value {minAndMax.Max}");
 
-numbers.RemoveAt(2);
-
-var words = new SimplifiedList<string>();
-
-words.Add("aaa");
-words.Add("bbb");
-words.Add("ccc");
-words.Add("ddd");
-words.Add("eee");
-
-Console.ReadKey();
-
-public class SimplifiedList<T>
+(int Min, int Max) CalculateMaxAndMin(IEnumerable<int> input)
 {
-    private T[] _items = new T[4];
-    private int _size = 0;
-
-    public void Add(T item)
+    if (!input.Any())
     {
-        if (_size >= _items.Length)
-        {
-            var items = new T[_items.Length * 2];
-            for (int i = 0; i < _items.Length; i++)
-            {
-                items[i] = _items[i];
-            }
-
-            _items = items;
-        }
-
-        _items[_size] = item;
-        _size += 1;
+        throw new InvalidOperationException($"The input cannot be empty.");
     }
 
-    public void RemoveAt(int index)
+    var max = input.First();
+    var min = input.First();
+
+    foreach (var i in input)
     {
-        if (index < 0 || index > _size)
+        if (i > max)
         {
-            throw new ArgumentOutOfRangeException($"Index {index} outside the bounds of the list");
+            max = i;
         }
-
-        _size -= 1;
-
-        for (int i = index; i < _size; i += 1)
+        if (i < min)
         {
-            _items[i] = _items[i + 1];
+            min = i;
         }
-
-        _items[_size] = default;
     }
 
-    public T GetAtIndex(int index)
-    {
-        if (index < 0 || index >= _size)
-        {
-            throw new ArgumentOutOfRangeException($"Index {index} outside the bounds of the list");
-        }
 
-        return _items[index];
+    return (min, max);
+}
+
+TwoInts GetMinAndMax(IEnumerable<int> input)
+{
+    if (!input.Any())
+    {
+        throw new InvalidOperationException($"The input cannot be empty.");
     }
+
+    var max = input.First();
+    var min = input.First();
+
+    foreach (var i in input)
+    {
+        if (i > max)
+        {
+            max = i;
+        }
+        if (i < min)
+        {
+            min = i;
+        }
+    }
+
+
+    return new TwoInts(min, max);
+}
+
+public class TwoInts
+{
+    public TwoInts(int int1, int int2)
+    {
+        Int1 = int1;
+        Int2 = int2;
+    }
+
+    public int Int1 { get; }
+    public int Int2 { get; }
 }
