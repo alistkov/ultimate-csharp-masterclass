@@ -1,7 +1,40 @@
 namespace UltimateCourse;
 
-public class Exercise
+public static class Exercise
 {
-    public Func<string, int> GetLength = word => word.Length;
-    public Func<int> GetRandomNumberBetween1And10 = () => new Random().Next(1, 11);
+    public static Dictionary<PetType, double> FindMaxWeights(List<Pet> pets)
+    {
+        //your code goes here
+        var result = new Dictionary<PetType, double>();
+        
+        foreach (var pet in pets)
+        {
+            if (result.ContainsKey(pet.PetType))
+            {
+                result[pet.PetType] = result[pet.PetType] > pet.Weight ? result[pet.PetType] : pet.Weight;
+            }
+            else
+            {
+                result.Add(pet.PetType, pet.Weight);
+            }
+        }
+
+        return result;
+    }
 }
+    
+public class Pet
+{
+    public PetType PetType { get; }
+    public double Weight { get; }
+    
+    public Pet(PetType petType, double weight)
+    {
+        PetType = petType;
+        Weight = weight;    
+    }
+        
+    public override string ToString() => $"{PetType}, {Weight} kilos";
+}
+    
+public enum PetType { Dog, Cat, Fish }
