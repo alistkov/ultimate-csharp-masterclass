@@ -1,10 +1,18 @@
-﻿using System.Numerics;
+﻿var numbers = new[] { 1, 4, 7, 19, 2 };
 
-Console.WriteLine($"Square of 2 is: {Calculator.Square(2)}");
-Console.WriteLine($"Square of 4m is: {Calculator.Square(4m)}");
-Console.WriteLine($"Square of 6d is: {Calculator.Square(6d)}");
+Console.WriteLine($"IsAnyLargerThan10? {IsAny(numbers, IsLargerThan10)}");
+Console.WriteLine($"IsAnyEven? {IsAny(numbers, IsEven)}");
 
-public static class Calculator
+bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate)
 {
-    public static T Square<T>(T input) where T: INumber<T> => input * input;
+    foreach (var number in numbers)
+    {
+        if (predicate(number))
+            return true;
+    }
+
+    return false;
 }
+
+bool IsLargerThan10(int number) => number > 10;
+bool IsEven(int number) => number % 2 == 10;
