@@ -1,16 +1,12 @@
-﻿ProcessString process1 = TrimTo5Letters;
-ProcessString process2 = ToUpper;
-Console.WriteLine(process1("helloooooo!"));
-Console.WriteLine(process2("helloooooo!"));
+﻿var countryToCurrencyMapping = new Dictionary<string, string>();
 
-string TrimTo5Letters(string input)
+countryToCurrencyMapping.Add("USA", "USD");
+countryToCurrencyMapping.Add("India", "INR");
+countryToCurrencyMapping.Add("Spain", "EUR");
+countryToCurrencyMapping.Add("Serbia", "RSD");
+countryToCurrencyMapping["Poland"] = "PLN";
+
+foreach (var country in countryToCurrencyMapping)
 {
-    return input.Substring(0, 5);
+    Console.WriteLine($"Country: {country.Key}, currency: {country.Value}");
 }
-
-string ToUpper(string input)
-{
-    return input.ToUpper();
-}
-
-delegate string ProcessString(string input);
