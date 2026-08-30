@@ -1,49 +1,36 @@
-﻿var people = new List<Person>
+﻿var numbers = new List<int> { 2, 4, 1, 12, 5, 0 };
+numbers.Sort();
+
+var words = new List<string> { "dd", "aa", "cc", "bb" };
+words.Sort();
+
+var people = new List<Person>
 {
     new Person { Name = "John", YearOfBirth = 1980 },
-    new Person { Name = "Sam", YearOfBirth = 1815 },
-    new Person { Name = "Bob", YearOfBirth = 2150 }
+    new Person { Name = "Sam", YearOfBirth = 1915 },
+    new Person { Name = "Bob", YearOfBirth = 2011 }
 };
 
-var employees = new List<Employee>
-{
-    new Employee { Name = "John", YearOfBirth = 1980 },
-    new Employee { Name = "Anna", YearOfBirth = 1815 },
-    new Employee { Name = "Bill", YearOfBirth = 2150 }
-};
-
-var validPeople = GetOnlyValid(people);
-var validEmployees = GetOnlyValid(employees);
-
-foreach (var validEmployee in validEmployees)
-{
-    validEmployee.GoToWork();
-}
+people.Sort();
 
 Console.ReadKey();
 
-IEnumerable<TPerson> GetOnlyValid<TPerson>(IEnumerable<TPerson> persons) where TPerson : Person
-{
-    var result = new List<TPerson>();
-
-    foreach (var person in persons)
-    {
-        if (person.YearOfBirth > 1900 && person.YearOfBirth < DateTime.Now.Year)
-        {
-            result.Add(person);
-        }
-    }
-
-    return result;
-}
-
-public class Person
+public class Person : IComparable<Person>
 {
     public string Name { get; init; }
     public int YearOfBirth { get; init; }
-}
+    public int CompareTo(Person other)
+    {
+        if (YearOfBirth < other.YearOfBirth)
+        {
+            return 1;
+        }
 
-public class Employee : Person
-{
-    public void GoToWork() => Console.WriteLine("Going to work");
+        if (YearOfBirth > other.YearOfBirth)
+        {
+            return -1;
+        }
+
+        return 0;
+    }
 }
