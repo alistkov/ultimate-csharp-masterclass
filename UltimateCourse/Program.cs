@@ -1,7 +1,7 @@
 ﻿var numbers = new[] { 1, 4, 7, 19, 2 };
 
-Console.WriteLine($"IsAnyLargerThan10? {IsAny(numbers, IsLargerThan10)}");
-Console.WriteLine($"IsAnyEven? {IsAny(numbers, IsEven)}");
+Console.WriteLine($"IsAnyLargerThan10? {IsAny(numbers, (number) => number > 10)}");
+Console.WriteLine($"IsAnyEven? {IsAny(numbers, (number) => number % 2 == 0)}");
 
 bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate)
 {
