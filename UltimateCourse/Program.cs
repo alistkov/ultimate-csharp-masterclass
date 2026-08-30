@@ -1,24 +1,31 @@
-﻿var numbers = new List<int> { 2, 4, 1, 12, 5, 0 };
-numbers.Sort();
+﻿var anna = new Person { Name = "Anna", YearOfBirth = 1980 };
+var john = new Person { Name = "John", YearOfBirth = 1915 };
 
-var words = new List<string> { "dd", "aa", "cc", "bb" };
-words.Sort();
-
-var people = new List<Person>
-{
-    new Person { Name = "John", YearOfBirth = 1980 },
-    new Person { Name = "Sam", YearOfBirth = 1915 },
-    new Person { Name = "Bob", YearOfBirth = 2011 }
-};
-
-people.Sort();
+PrintInOrder(10, 5);
+PrintInOrder("aa", "bb");
+PrintInOrder(anna, john);
 
 Console.ReadKey();
+
+void PrintInOrder<T>(T first, T second) where T: IComparable<T>
+{
+    if (first.CompareTo(second) > 0)
+    {
+        Console.WriteLine($"{second} {first}");
+    }
+    else
+    {
+        Console.WriteLine($"{first} {second}");
+    }
+}
 
 public class Person : IComparable<Person>
 {
     public string Name { get; init; }
     public int YearOfBirth { get; init; }
+
+    public override string ToString() => $"{Name} born in {YearOfBirth}";
+
     public int CompareTo(Person other)
     {
         if (YearOfBirth < other.YearOfBirth)
