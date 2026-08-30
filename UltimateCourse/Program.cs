@@ -1,18 +1,16 @@
-﻿var numbers = new[] { 1, 4, 7, 19, 2 };
+﻿ProcessString process1 = TrimTo5Letters;
+ProcessString process2 = ToUpper;
+Console.WriteLine(process1("helloooooo!"));
+Console.WriteLine(process2("helloooooo!"));
 
-Console.WriteLine($"IsAnyLargerThan10? {IsAny(numbers, (number) => number > 10)}");
-Console.WriteLine($"IsAnyEven? {IsAny(numbers, (number) => number % 2 == 0)}");
-
-bool IsAny(IEnumerable<int> numbers, Func<int, bool> predicate)
+string TrimTo5Letters(string input)
 {
-    foreach (var number in numbers)
-    {
-        if (predicate(number))
-            return true;
-    }
-
-    return false;
+    return input.Substring(0, 5);
 }
 
-bool IsLargerThan10(int number) => number > 10;
-bool IsEven(int number) => number % 2 == 10;
+string ToUpper(string input)
+{
+    return input.ToUpper();
+}
+
+delegate string ProcessString(string input);
