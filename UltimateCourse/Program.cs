@@ -1,15 +1,77 @@
-﻿using UltimateCourse;
+﻿var numbers = new List<int> { 10, 12, -100, 55, 17, 22 };
 
-var pets = new List<Pet>
+Console.WriteLine(@"Select filter:
+Even
+Odd
+Positive");
+
+var userInput = Console.ReadLine();
+
+var result = new NumbersFilter().FilterBy(userInput, numbers);
+
+Print(result);
+
+void Print(IEnumerable<int> numbers)
 {
-    new Pet(PetType.Dog, 10),
-    new Pet(PetType.Cat, 5),
-    new Pet(PetType.Fish, 0.9),
-    new Pet(PetType.Dog, 45),
-    new Pet(PetType.Cat, 2),
-    new Pet(PetType.Fish, 0.02),
-};
+    Console.WriteLine(string.Join(", ", numbers));
+}
+
+public class NumbersFilter
+{
+    public List<int> FilterBy(string filterType, List<int> numbers)
+    {
+        return filterType switch
+        {
+            "Even" => SelectEven(numbers),
+            "Odd" => SelectOdd(numbers),
+            "Positive" => SelectPositive(numbers),
+            _ => throw new NotSupportedException($"{filterType} is not a valid filter")
+        };
+    }
+    
+    private List<int> SelectEven(List<int> numbers)
+    {
+        var result = new List<int>();
+
+        foreach (var number in numbers)
+        {
+            if (number % 2 == 0)
+            {
+                result.Add(number);
+            }
+        }
+
+        return result;
+    }
+
+    private List<int> SelectOdd(List<int> numbers)
+    {
+        var result = new List<int>();
+
+        foreach (var number in numbers)
+        {
+            if (number % 2 != 0)
+            {
+                result.Add(number);
+            }
+        }
+
+        return result;
+    }
 
 
-var t = Exercise.FindMaxWeights(pets);
-Console.ReadKey();
+    private List<int> SelectPositive(List<int> numbers)
+    {
+        var result = new List<int>();
+
+        foreach (var number in numbers)
+        {
+            if (number > 0)
+            {
+                result.Add(number);
+            }
+        }
+
+        return result;
+    }
+}
