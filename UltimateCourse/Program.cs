@@ -7,7 +7,8 @@ Positive");
 
 var userInput = Console.ReadLine();
 
-var result = new NumbersFilter().FilterBy(userInput, numbers);
+var filteringStrategy = new FilteringStrategySelector().Select(userInput);
+var result = new NumbersFilter().FilterBy(filteringStrategy, numbers);
 
 Print(result);
 
@@ -18,18 +19,7 @@ void Print(IEnumerable<int> numbers)
 
 public class NumbersFilter
 {
-    public List<int> FilterBy(string filterType, List<int> numbers)
-    {
-        return filterType switch
-        {
-            "Even" => Select(numbers, (number) => number % 2 == 0),
-            "Odd" => Select(numbers, (number) => number % 2 != 0),
-            "Positive" => Select(numbers, (number) => number > 0),
-            _ => throw new NotSupportedException($"{filterType} is not a valid filter")
-        };
-    }
-    
-    private List<int> Select(List<int> numbers, Func<int, bool> predicate)
+    public List<int> FilterBy(Func<int, bool> predicate, List<int> numbers)
     {
         var result = new List<int>();
 
@@ -42,5 +32,25 @@ public class NumbersFilter
         }
 
         return result;
+    }
+}
+
+public class FilteringStrategySelector
+{
+    private readonly Dictionary<string, Func<int, bool>> _filteringStrategies = new Dictionary<string, Func<int, bool>>
+    {
+        ["Even"] = (number) => number % 2 == 0,
+        ["Odd"] = (number) => number % 2 != 0,
+        ["Positive"] = (number) => number > 0,
+    };
+    
+    public Func<int, bool> Select(string filterType)
+    {
+        if (!_filteringStrategies.ContainsKey(filterType))
+        {
+            throw new NotSupportedException($"{filterType} is not a valid filter");
+        }
+
+        return _filteringStrategies[filterType];
     }
 }
