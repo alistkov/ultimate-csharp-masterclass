@@ -22,51 +22,20 @@ public class NumbersFilter
     {
         return filterType switch
         {
-            "Even" => SelectEven(numbers),
-            "Odd" => SelectOdd(numbers),
-            "Positive" => SelectPositive(numbers),
+            "Even" => Select(numbers, (number) => number % 2 == 0),
+            "Odd" => Select(numbers, (number) => number % 2 != 0),
+            "Positive" => Select(numbers, (number) => number > 0),
             _ => throw new NotSupportedException($"{filterType} is not a valid filter")
         };
     }
     
-    private List<int> SelectEven(List<int> numbers)
+    private List<int> Select(List<int> numbers, Func<int, bool> predicate)
     {
         var result = new List<int>();
 
         foreach (var number in numbers)
         {
-            if (number % 2 == 0)
-            {
-                result.Add(number);
-            }
-        }
-
-        return result;
-    }
-
-    private List<int> SelectOdd(List<int> numbers)
-    {
-        var result = new List<int>();
-
-        foreach (var number in numbers)
-        {
-            if (number % 2 != 0)
-            {
-                result.Add(number);
-            }
-        }
-
-        return result;
-    }
-
-
-    private List<int> SelectPositive(List<int> numbers)
-    {
-        var result = new List<int>();
-
-        foreach (var number in numbers)
-        {
-            if (number > 0)
+            if (predicate(number))
             {
                 result.Add(number);
             }
