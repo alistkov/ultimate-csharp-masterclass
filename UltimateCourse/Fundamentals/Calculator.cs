@@ -1,4 +1,4 @@
-namespace Fundamentals;
+namespace UltimateCourse.Fundamentals;
 
 public class Calculator
 {
