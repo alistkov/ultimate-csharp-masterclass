@@ -1,4 +1,4 @@
-namespace UltimateCourse;
+namespace UltimateCourse.Exceptions;
 
 public class Person
 {
