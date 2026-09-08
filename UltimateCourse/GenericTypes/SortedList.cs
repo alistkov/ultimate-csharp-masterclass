@@ -1,4 +1,4 @@
-namespace UltimateCourse;
+namespace UltimateCourse.GenericTypes;
 
 public class SortedList<T> where T: IComparable<T>
 {
