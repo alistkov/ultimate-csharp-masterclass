@@ -1,4 +1,4 @@
-namespace UltimateCourse;
+namespace UltimateCourse.OOP;
 
 public enum Season
 {

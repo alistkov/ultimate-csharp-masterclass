@@ -1,3 +1,5 @@
+using UltimateCourse.OOP;
+
 namespace UltimateCourse.Extensions;
 
 public static class SeasonExtensions
