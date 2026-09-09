@@ -5,8 +5,10 @@ public class LinqTutorial
     public static void Run()
     {
         var numbers = new int[] { 1, 2, 3, 4, 5, 6, 13 };
-        var isAnyLargerThan0 = numbers.All(number => number > 0);
-        Console.WriteLine(isAnyLargerThan0);
+        Console.WriteLine(numbers.Contains(7));
+
+        var animals = new List<string> { "lion", "tiger", "show leopard" };
+        Console.WriteLine(animals.Contains("tiger"));
     }
 
     public static bool IsAnyWordUpperCase(IEnumerable<string> words)
