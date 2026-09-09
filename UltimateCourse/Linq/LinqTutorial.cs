@@ -4,25 +4,9 @@ public class LinqTutorial
 {
     public static void Run()
     {
-        var words = new List<string> { "a", "bb", "ccc", "dddd" };
-        var shortWords = words.Where(word => word.Length < 3).ToList();
-        
-        Console.WriteLine("First iteration");
-        foreach (var word in shortWords)
-        {
-            Console.WriteLine(word);
-        }
-        words.Add("e");
-        Console.WriteLine("Second iteration");
-        foreach (var word in shortWords)
-        {
-            Console.WriteLine(word);
-        }
-        
-        var wordsLongerThan2 = words.Where(word => word.Length > 2);
-
-        var numbers = new int[] { 1, 2, 3, 4, 5, 6 };
-        var oddNumbers = numbers.Where(number => number % 2 != 0);
+        var numbers = new int[] { 1, 2, 3, 4, 5, 6, 13 };
+        var isAnyLargerThan10 = numbers.Any(number => number > 10);
+        Console.WriteLine(isAnyLargerThan10);
     }
 
     public static bool IsAnyWordUpperCase(IEnumerable<string> words)
