@@ -19,4 +19,12 @@ public class Exercise
             .Count(list => 
                 list.Count() > length && list.Contains(0));
     }
+    
+    public static string FindShortestWord(List<string> words)
+    {
+        //your code goes here
+        return words
+            .OrderBy(word => word.Length)
+            .First();
+    }
 }
