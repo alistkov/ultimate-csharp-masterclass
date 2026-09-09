@@ -5,8 +5,8 @@ public class LinqTutorial
     public static void Run()
     {
         var numbers = new int[] { 1, 2, 3, 4, 5, 6, 13 };
-        var isAnyLargerThan10 = numbers.Any(number => number > 10);
-        Console.WriteLine(isAnyLargerThan10);
+        var isAnyLargerThan0 = numbers.All(number => number > 0);
+        Console.WriteLine(isAnyLargerThan0);
     }
 
     public static bool IsAnyWordUpperCase(IEnumerable<string> words)
