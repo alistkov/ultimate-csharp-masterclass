@@ -9,4 +9,14 @@ public class Exercise
             word.All(letter => 
                 char.IsWhiteSpace(letter)));
     }
+    
+    public static int CountListsContainingZeroLongerThan(
+        int length,
+        List<List<int>> listsOfNumbers)
+    {
+        //your code goes here
+        return listsOfNumbers
+            .Count(list => 
+                list.Count() > length && list.Contains(0));
+    }
 }
