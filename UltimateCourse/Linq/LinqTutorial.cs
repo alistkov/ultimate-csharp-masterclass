@@ -5,7 +5,7 @@ public class LinqTutorial
     public static void Run()
     {
         var numbers = new int[] { 1, 2, 3, 4, 5, 6, 13 };
-        Console.WriteLine(numbers.Contains(7));
+        Console.WriteLine(numbers.OrderByDescending(n => n));
 
         var animals = new List<string> { "lion", "tiger", "show leopard" };
         Console.WriteLine(animals.Contains("tiger"));
