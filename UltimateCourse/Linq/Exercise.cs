@@ -27,4 +27,14 @@ public class Exercise
             .OrderBy(word => word.Length)
             .First();
     }
+    
+    public static IEnumerable<DateTime> GetFridaysOfYear(int year, IEnumerable<DateTime> dates) 
+    {
+        //your code goes here
+        var r = dates
+            .Distinct()
+            .Where((date) => date.Year == year && date.DayOfWeek == DayOfWeek.Friday);
+
+        return r;
+    }
 }
