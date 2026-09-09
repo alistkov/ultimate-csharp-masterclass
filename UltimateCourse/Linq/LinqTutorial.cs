@@ -5,6 +5,20 @@ public class LinqTutorial
     public static void Run()
     {
         var words = new List<string> { "a", "bb", "ccc", "dddd" };
+        var shortWords = words.Where(word => word.Length < 3).ToList();
+        
+        Console.WriteLine("First iteration");
+        foreach (var word in shortWords)
+        {
+            Console.WriteLine(word);
+        }
+        words.Add("e");
+        Console.WriteLine("Second iteration");
+        foreach (var word in shortWords)
+        {
+            Console.WriteLine(word);
+        }
+        
         var wordsLongerThan2 = words.Where(word => word.Length > 2);
 
         var numbers = new int[] { 1, 2, 3, 4, 5, 6 };
