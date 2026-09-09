@@ -2,6 +2,15 @@ namespace UltimateCourse.Linq;
 
 public class LinqTutorial
 {
+    public static void Run()
+    {
+        var words = new List<string> { "a", "bb", "ccc", "dddd" };
+        var wordsLongerThan2 = words.Where(word => word.Length > 2);
+
+        var numbers = new int[] { 1, 2, 3, 4, 5, 6 };
+        var oddNumbers = numbers.Where(number => number % 2 != 0);
+    }
+
     public static bool IsAnyWordUpperCase(IEnumerable<string> words)
     {
         foreach (var word in words)
