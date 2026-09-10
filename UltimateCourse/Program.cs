@@ -1,13 +1,16 @@
-﻿using UltimateCourse.UnderTheHood;
+﻿var nums = new List<int> { 2, 3, 4, 5, 6 };
 
-var date = new DateTime(2024, 8, 14);
-var date2 = new DateTime(2024, 7, 21);
-var date3 = new DateTime(2025, 2, 14);
+AddOneToList(ref nums);
 
-Console.WriteLine($"date before: {date}");
-Exercise.FastForwardToSummer(ref date);
-Console.WriteLine($"date after: {date}");
+// foreach (var num in nums)
+// {
+//     Console.WriteLine(num);
+// }
 
-Console.WriteLine($"date3 before: {date3}");
-Exercise.FastForwardToSummer(ref date3);
-Console.WriteLine($"date3 after: {date3}");
+Console.ReadKey();
+
+void AddOneToList(ref List<int> numbers)
+{
+    // numbers.Add(1);
+    numbers = null;
+}
