@@ -1,19 +1,13 @@
-﻿var number = 5;
+﻿using UltimateCourse.UnderTheHood;
 
-AddOneToNumber(ref number);
-Console.WriteLine($"number now is {number}");
+var date = new DateTime(2024, 8, 14);
+var date2 = new DateTime(2024, 7, 21);
+var date3 = new DateTime(2025, 2, 14);
 
-var otherNumber = 19;
+Console.WriteLine($"date before: {date}");
+Exercise.FastForwardToSummer(ref date);
+Console.WriteLine($"date after: {date}");
 
-MethodWithOutParameter(out otherNumber);
-Console.WriteLine($"other number is {otherNumber}");
-
-void MethodWithOutParameter(out int number)
-{
-    number = 10;
-}
-
-void AddOneToNumber(ref int number)
-{
-    ++number;
-}
+Console.WriteLine($"date3 before: {date3}");
+Exercise.FastForwardToSummer(ref date3);
+Console.WriteLine($"date3 after: {date3}");
