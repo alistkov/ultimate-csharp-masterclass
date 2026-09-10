@@ -37,4 +37,12 @@ public class Exercise
 
         return r;
     }
+    
+    public static double CalculateAverageDurationInMilliseconds(IEnumerable<TimeSpan> timeSpans)
+    {
+        //your code goes here
+        return timeSpans
+            .Select(timeSpan => timeSpan.TotalMicroseconds)
+            .Average() / 1000;
+    }
 }
