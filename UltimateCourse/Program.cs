@@ -12,13 +12,22 @@ void AddOneToNumber(int number)
     ++number;
 }
 
-void AddOneToPersonAge(Person person)
+// void AddOneToPersonAge(Person person)
+// {
+//     ++person.Age;
+// }
+
+Person AddOneToPersonAge(Person person)
 {
-    ++person.Age;
+    return new Person
+    {
+        Name = person.Name,
+        Age = person.Age + 1
+    };
 }
 
-class Person
+struct Person
 {
-    public required string Name { get; set; }
-    public required int Age { get; set; }
+    public required string Name { get; init; }
+    public required int Age { get; init; }
 }
