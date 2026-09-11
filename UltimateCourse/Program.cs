@@ -1,19 +1,23 @@
-﻿bool flag = true;
-Person person = new Person();
+﻿bool someCondition = false;
 
-if (flag)
+if (someCondition)
 {
-    string textInsideIf = "asdasf";
-    person.Name = "John";
+    var someClass = new SomeClass();
 }
 
-string text = "bbb";
+Console.WriteLine($"Count of all instances is now {SomeClass.CountOfInstances}");
 
 Console.ReadKey();
 
 
-class Person
+public class SomeClass
 {
-    public string Name { get; set; }
-    public int Age { get; set; }
+    private static List<SomeClass> _allExistingInstanses = new List<SomeClass>();
+
+    public SomeClass()
+    {
+        _allExistingInstanses.Add(this);
+    }
+
+    public static int CountOfInstances => _allExistingInstanses.Count;
 }
