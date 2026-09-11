@@ -1,17 +1,19 @@
-﻿string userInput = Console.ReadLine();
-if (userInput == "Print person")
+﻿bool flag = true;
+Person person = new Person();
+
+if (flag)
 {
-    Person person = new Person { Name = "John Doe", Age = 35 };
-    Console.WriteLine($"{person.Name} is {person.Age} years old");
+    string textInsideIf = "asdasf";
+    person.Name = "John";
 }
 
-GC.Collect();
+string text = "bbb";
 
 Console.ReadKey();
 
 
 class Person
 {
-    public string Name { get; init; }
-    public int Age { get; init; }
+    public string Name { get; set; }
+    public int Age { get; set; }
 }
