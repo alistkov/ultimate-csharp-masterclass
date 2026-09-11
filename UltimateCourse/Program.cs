@@ -1,16 +1,19 @@
-﻿var nums = new List<int> { 2, 3, 4, 5, 6 };
+﻿var variousObjects = new List<object>
+{
+    1, 3L, 1.5m, new DateTime(2027, 1, 1), "hello", new Person { Name = "John Doe", Age = 35 }, true
+};
 
-AddOneToList(ref nums);
-
-// foreach (var num in nums)
-// {
-//     Console.WriteLine(num);
-// }
+foreach (var someObject in variousObjects)
+{
+    Console.WriteLine(someObject);
+    Console.WriteLine(someObject.GetType().Name);
+}
 
 Console.ReadKey();
 
-void AddOneToList(ref List<int> numbers)
+
+class Person
 {
-    // numbers.Add(1);
-    numbers = null;
+    public string Name { get; init; }
+    public int Age { get; init; }
 }
