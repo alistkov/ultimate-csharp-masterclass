@@ -1,4 +1,9 @@
-﻿var variousObjects = new List<object>
+﻿int number = 5;
+var person = new Person { Name = "Sam", Age = 22 };
+object boxedNumber = number;
+short unboxedNumber = (short)boxedNumber;
+
+var variousObjects = new List<object>
 {
     1, 3L, 1.5m, new DateTime(2027, 1, 1), "hello", new Person { Name = "John Doe", Age = 35 }, true
 };
