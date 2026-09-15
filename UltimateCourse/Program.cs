@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using UltimateCourse.UnderTheHood;
+
+const string path =
+    "/Users/alistkov/Code/courses/csharp/ultimate-course/UltimateCourse/UltimateCourse/UnderTheHood/sampleData.csv";
+    
+var data = new CsvReader().Read(path);
+
+Console.ReadKey();
