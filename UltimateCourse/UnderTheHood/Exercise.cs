@@ -1,15 +1,28 @@
 namespace UltimateCourse.UnderTheHood;
 
-public class Exercise
+public class Exercise : IDisposable
 {
-    public static void FastForwardToSummer(ref DateTime date)
+    private readonly StreamReader _streamReader;
+    
+    public Exercise(string filePath)
     {
-        //your code goes here
-        var firstDayOfSummer = new DateTime(date.Year, 6, 1);
-
-        if (date < firstDayOfSummer)
+        _streamReader = new StreamReader(filePath);
+    }
+    
+    public List<string> ReadAllLines()
+    {
+        var result = new List<string>();
+        while (!_streamReader.EndOfStream) 
         {
-            date = firstDayOfSummer;
+            result.Add(_streamReader.ReadLine());
         }
+    
+        return result;
+    }
+    
+    //your code goes here
+    public void Dispose()
+    {
+        _streamReader.Dispose();
     }
 }
