@@ -1,6 +1,6 @@
 namespace UltimateCourse.UnderTheHood;
 
-public class FileWriter(string filePath)
+public class FileWriter(string filePath) : IDisposable
 {
     private readonly StreamWriter _streamWriter = new StreamWriter(filePath, true);
     
@@ -9,4 +9,14 @@ public class FileWriter(string filePath)
         _streamWriter.WriteLine(text);
         _streamWriter.Flush();
     }
+
+    public void Dispose()
+    {
+        _streamWriter.Dispose();
+    }
+
+    // ~FileWriter()
+    // {
+    //     Dispose();
+    // }
 }

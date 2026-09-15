@@ -1,6 +1,6 @@
 namespace UltimateCourse.UnderTheHood;
 
-public class SpecificLineFromTextFileReader(string filePath)
+public class SpecificLineFromTextFileReader(string filePath): IDisposable
 {
     private readonly StreamReader _streamReader = new StreamReader(filePath);
 
@@ -15,5 +15,10 @@ public class SpecificLineFromTextFileReader(string filePath)
         }
 
         return _streamReader.ReadLine();
+    }
+
+    public void Dispose()
+    {
+        _streamReader.Dispose();
     }
 }
