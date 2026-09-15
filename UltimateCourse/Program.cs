@@ -1,23 +1,8 @@
-﻿bool someCondition = false;
+﻿using UltimateCourse.UnderTheHood;
 
-if (someCondition)
-{
-    var someClass = new SomeClass();
-}
+const string filePath = "file.txt";
+var writer = new FileWriter(filePath);
 
-Console.WriteLine($"Count of all instances is now {SomeClass.CountOfInstances}");
-
-Console.ReadKey();
-
-
-public class SomeClass
-{
-    private static List<SomeClass> _allExistingInstanses = new List<SomeClass>();
-
-    public SomeClass()
-    {
-        _allExistingInstanses.Add(this);
-    }
-
-    public static int CountOfInstances => _allExistingInstanses.Count;
-}
+ writer.Write("some text");
+ writer.Write("some other text");
+ 
